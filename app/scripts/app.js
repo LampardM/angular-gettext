@@ -22,7 +22,7 @@ angular
     gettextCatalog.setCurrentLanguage('en_US');
     gettextCatalog.debug = true;
   })
-  .config(function ($routeProvider) {
+  .config(['$routeProvider', '$locationProvider',function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -34,4 +34,5 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
-  });
+      $locationProvider.html5Mode(true)
+  }]);
